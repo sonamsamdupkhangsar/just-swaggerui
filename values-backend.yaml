@@ -44,6 +44,9 @@ istio:
 ingress:
   enabled: true
   ingressClass: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://github.com"
   hosts:
     - host: swaggerui.sonam.cloud
       paths:
