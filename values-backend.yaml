@@ -47,7 +47,7 @@ ingress:
   hosts:
     - host: swaggerui.sonam.cloud
       paths:
-        - path: /public
+        - path: /
           pathType: Prefix
   tls:
     - secretName: sonam.cloud
