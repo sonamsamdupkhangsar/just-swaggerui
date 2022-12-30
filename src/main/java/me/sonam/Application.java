@@ -11,7 +11,6 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 
 @SpringBootApplication
-@CrossOrigin
 public class Application {
 
     public static void main(String[] args) {
