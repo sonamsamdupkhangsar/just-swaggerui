@@ -8,7 +8,7 @@ image:
   pullPolicy: Always
 
 imagePullSecrets:
-  - name: regcred
+  - name: github-regcred
 nameOverride: ""
 fullnameOverride: ""
 
@@ -44,11 +44,11 @@ istio:
 ingress:
   enabled: true
   ingressClass: nginx
-  #annotations:
-    #cert-manager.io/issuer: letsencrypt-nginx
-
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
   hosts:
-    - host: project-api.sonam.cloud
+    - host: swaggerui.sonam.cloud
       paths:
         - path: /
           pathType: Prefix
@@ -56,9 +56,7 @@ ingress:
     - secretName: sonam.cloud
       hosts:
         - "*.sonam.cloud"
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -78,20 +76,16 @@ tolerations: []
 
 affinity: {}
 
-envs:
-  - name: SPRING_PROFILES_ACTIVE
-    value: "prod"
-
 health:
   liveness:
     path: /api/health/liveness
     port: 8080
-    initialDelaySeconds: 60
+    initialDelaySeconds: 10
     periodSeconds: 5
     failureThreshold: 5
   readiness:
     path: /api/health/readiness
     port: 8080
-    initialDelaySeconds: 60
+    initialDelaySeconds: 10
     periodSeconds: 5
     failureThreshold: 5

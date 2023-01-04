@@ -1,4 +1,4 @@
-package me.sonam.temp;
+package me.sonam.swaggerui;
 
 import lombok.extern.java.Log;
 import me.sonam.Application;

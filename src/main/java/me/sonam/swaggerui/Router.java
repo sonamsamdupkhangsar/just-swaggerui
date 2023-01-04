@@ -1,4 +1,4 @@
-package me.sonam.temp;
+package me.sonam.swaggerui;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,8 +9,7 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
-import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
+import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 
 /**
  * Set Email route
@@ -22,7 +21,7 @@ public class Router {
     @Bean
     public RouterFunction<ServerResponse> route(Handler handler) {
         LOG.info("building router function");
-        return RouterFunctions.route(POST("/path").and(accept(MediaType.APPLICATION_JSON)),
+        return RouterFunctions.route(GET("/").and(accept(MediaType.TEXT_HTML)),
                 handler::handle);
     }
 }
