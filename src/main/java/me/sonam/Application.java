@@ -1,14 +1,9 @@
 package me.sonam;
 
+import org.springdoc.core.GroupedOpenApi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.reactive.CorsWebFilter;
-import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
-
-import java.util.Arrays;
 
 @SpringBootApplication
 public class Application {
@@ -18,4 +13,10 @@ public class Application {
     }
 
 
+    //@Bean
+    GroupedOpenApi myGroup() {
+        return GroupedOpenApi.builder().group("myapi")
+                .pathsToMatch("/v3/api-docs")
+                .build();
+    }
 }

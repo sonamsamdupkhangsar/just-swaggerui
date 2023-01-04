@@ -1,6 +1,6 @@
 logging:
   level:
-    root: error
+    root: info
     me:
       sonam: debug
 info:
@@ -16,3 +16,19 @@ management:
 
 server:
   port: 8080
+
+springdoc:
+  pathsToMatch: /v3/api-docs/myapi
+  swagger-ui:
+    urls[0]:
+      url: /v3/api-docs/myapi/application-rest-service-openapi.yaml
+      name: application-rest-service
+    urls[1]:
+      url: /v3/api-docs/myapi/authentication-rest-service-openapi.yaml
+      name: authentication-rest-service
+    urls[2]:
+      url: /v3/api-docs/myapi/user-rest-service-openapi.yaml
+      name: user-rest-service
+
+
+    #application-rest-service-openapi.yaml
