@@ -249,6 +249,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RoleGroupNames'
+              example:
+                userRole: "user"
+                groupNames: ["admin", "appgroup"]
+
         '400':
           description: failed to get role and group names for userId
           content:
