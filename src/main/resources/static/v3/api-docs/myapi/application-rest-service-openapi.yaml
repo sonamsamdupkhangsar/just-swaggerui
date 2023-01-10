@@ -1,9 +1,9 @@
 openapi: "3.0.2"
 info:
-  title: API Title
+  title: Application Rest api.
   version: "1.0"
 servers:
-  - url: https://application-rest-service.sonam.cloud
+  - url: http://localhost:8082
 
 security:
   - bearerAuth: []
