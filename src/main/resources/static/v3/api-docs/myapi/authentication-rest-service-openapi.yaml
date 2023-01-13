@@ -6,6 +6,10 @@ info:
 security:
   - bearerAuth: []
 
+servers:
+  - url: http://localhost:8082
+    description: local development server
+
 paths:
   /authentications:
     post:
