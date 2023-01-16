@@ -5,10 +5,11 @@ info:
   description: User rest services api documentation
 
 servers:
-  - url: http://localhost:8083
+  - url: http://localhost:8084
     description: local development server
+
 paths:
-  /users/signup:
+  /users:
     post:
       description: signup up new user in user-rest-service and then in authentication-rest-service and then in account-rest-service.  This is in it's own path for making it publicly available path.
       requestBody:
@@ -30,7 +31,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestBody'
-  /users:
     put:
       description: Update User whose credentials matches the JWT user
       requestBody:
