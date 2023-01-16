@@ -28,16 +28,22 @@ paths:
         '201':
           description: Successfully created new application
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                format: uuid
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
         '400':
           description: application with clientId already exists
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  error:
+                    type: string
 
     put:
       description: update application
@@ -201,11 +207,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestBody'
-  /applications/{applicationId}/users:
+  /applications/{id}/users:
     get:
-      description: get applicationusers by applicationId
+      description: get applicationusers by application id
       parameters:
-        - name: applicationId
+        - name: id
           in: path
           required: true
           schema:
