@@ -195,18 +195,15 @@ paths:
         '200':
           description: updated list of user with application items
           content:
-            application/json:
+            text/plain:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+                type: string
         '400':
           description: failed to update users with application
           content:
-            application/json:
+            text/plain:
               schema:
-                $ref: '#/components/schemas/BadRequestBody'
+                type: string
   /applications/{id}/users:
     get:
       description: get applicationusers by application id

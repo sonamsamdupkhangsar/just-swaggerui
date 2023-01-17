@@ -70,20 +70,20 @@ paths:
         '200':
           description: User authenticated successfully
           content:
-             text/plain:
-               schema:
-                 type: string
+            text/plain:
+              schema:
+                type: string
         '400':
           description: Failed to authenticate user
           content:
             text/plain:
               schema:
                 type: string
-  /authentications/activate/{authenticationId}:
+  /authentications/activate/{id}:
     put:
       description: Set authentication active status to true.  This service will be called from account-rest-service/activate/{authenticationId}
       parameters:
-        - name: authenticationId
+        - name: id
           in: path
           required: true
           schema:
@@ -123,8 +123,8 @@ paths:
           description: Failed to update password
           content:
             text/plain:
-             schema:
-               type: string
+              schema:
+                type: string
 components:
   securitySchemes:
     bearerAuth:
