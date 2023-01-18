@@ -31,6 +31,9 @@ springdoc:
     urls[3]:
       url: /v3/api-docs/jwt/jwt-rest-service-openapi.yaml
       name: jwt-rest-service
+    urls[4]:
+      url: /v3/api-docs/email/email-rest-service-openapi.yaml
+      name: email-rest-service
 
 
     #application-rest-service-openapi.yaml

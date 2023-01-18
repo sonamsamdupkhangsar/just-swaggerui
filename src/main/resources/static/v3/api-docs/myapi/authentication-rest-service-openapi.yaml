@@ -28,34 +28,46 @@ paths:
         '201':
           description: Successfully created authentication
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  message:
+                    type: string
                 example:
-                  text: uuid-value-of-authentication-id
+                  message: Authentication created successfully for authenticationId rubberduck_1001
         '400':
           description: Failed to create authentication
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  error:
+                    type: string
                 example:
-                  text: some error code
+                  error: Invalid authentication id
     delete:
       description: Delete authentication associated with the JWT
       responses:
         '200':
           description: Deleted authentication for the user in the JWT
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  message:
+                    type: string
         '400':
           description: Failed to delete authentication
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  error:
+                    type: string
 
   /authentications/authenticate:
     post:
@@ -70,61 +82,77 @@ paths:
         '200':
           description: User authenticated successfully
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  message:
+                    type: string
         '400':
           description: Failed to authenticate user
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-  /authentications/activate/{id}:
+                type: object
+                properties:
+                  error:
+                    type: string
+  /authentications/activate/{authenticationId}:
     put:
       description: Set authentication active status to true.  This service will be called from account-rest-service/activate/{authenticationId}
       parameters:
-        - name: id
+        - name: authenticationId
           in: path
           required: true
           schema:
             type: string
             format: uuid
-          examples:
-            200_OK
       responses:
         '200':
           description: Successfully activated authenticationId.
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  message:
+                    type: string
         '400':
           description: Failed to activate authenticationId.
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  error:
+                    type: string
   /authentications/password:
     put:
       description: Update authentication password
       requestBody:
         content:
-          text/plain:
+          application/json:
             schema:
               type: string
       responses:
         '200':
           description: Successfully updated password
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  message:
+                    type: string
         '400':
           description: Failed to update password
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  error:
+                    type: string
 components:
   securitySchemes:
     bearerAuth:
